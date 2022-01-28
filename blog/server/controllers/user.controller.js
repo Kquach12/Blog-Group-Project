@@ -38,7 +38,7 @@ module.exports = {
                         if(isPasswordValid) {
                             // TODO: Remove after working
                             console.log("good to go!")
-                            res.cookie("usertoken", 
+                            res.cookie("usertoken",
                             jwt.sign({
                                 user_id: userRecord._id
                             },
@@ -73,14 +73,14 @@ module.exports = {
 
     logout: (req, res) => {
         console.log("Logging out");
-        
+
         res.clearCookie('usertoken');
         res.sendStatus(200)
         // The json creates an error.  Logout works
         // .json({
         //     message: "You have successfully logged out!"
         // });
-        
+
     },
 
     // FIXME: getAll Users should not stay in final code!
@@ -94,4 +94,5 @@ module.exports = {
     },
 
 }
+
 // My comment
