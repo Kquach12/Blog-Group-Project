@@ -16,9 +16,11 @@ app.use(cors({
 app.use(cookieParser());
 
 
-require('./routes/blog.routes')(app);
+
 require('./config/mongoose.config');
-// TODO: needs user and blog routes
+require('./routes/blog.routes')(app);
+require('./routes/user.routes')(app);
+
 
 
 

@@ -45,10 +45,10 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.virtual('confirmPassword')
     .get(() => this._confirmPassword)
-    .set((value) => this._confirmPassword = value);
+    .set(value => this._confirmPassword = value);
 
 UserSchema.pre('validate', function(next) {
-    if(this.password !== this._confirmPassword) {
+    if(this.password !== this.confirmPassword) {
         this.invalidate('confirmPassword', "Passwords must match")
     }
     next();
