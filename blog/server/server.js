@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 
 
 
+
 app.use(express.json(), express.urlencoded({ extended: true }));
 app.use(cors({
     credentials: true,
@@ -17,10 +18,12 @@ app.use(cookieParser());
 
 
 
+
 require('./config/mongoose.config');
 require('./routes/blog.routes')(app);
 require('./routes/user.routes')(app);
 require('./routes/comment.routes')(app);
+require('./routes/profileimage.routes')(app);
 
 
 

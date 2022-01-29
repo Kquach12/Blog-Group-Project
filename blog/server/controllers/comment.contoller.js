@@ -75,4 +75,29 @@ module.exports = {
                 res.status(400).json(err);
             });
     },
+
+    getAllCommentsByUser: (req, res) => {
+        const decodedJWT = jwt.decode(req.cookies.usertoken, { complete: true });
+        const thisUserId = decodedJWT.payload.user_id;
+        Comment.findById({ createdBy: thisUserId })
+            .then((userComments) => {
+                console.log(userComments);
+                res.json(userComments);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    },
+
+    deleteOneComment: (req, res) => {
+        Comment.findByIdAndDelete({ _id: req.params.id })
+            .then((deletedComment) => {
+                console.log(deletedComment);
+                res.json(deletedComment);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
 }
