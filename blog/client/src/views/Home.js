@@ -5,15 +5,18 @@ import BlogList from '../components/BlogList';
 import ProfileInfo from '../components/ProfileInfo';
 
 
+
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
-    const [loaded, setLoaded] = useState(false);
+  const [user, setUser] = useState();
+  const [loaded, setLoaded] = useState(false);
     useEffect(()=>{
         axios.get('http://localhost:8000/api/blogs')
             .then(res=>{
                 setBlogs(res.data);
                 setLoaded(true);
-            });
+            }).then(axios.get('http://localhost:8000/api/user/getLoggedInUser')
+                .then(res => setUser(res.data)));;
     },[])
   return (
 
@@ -24,7 +27,7 @@ const Home = () => {
         </div>
         <div className='col'>
           <h2>Blogs start here</h2>
-          { loaded && <BlogList filter="USER-ID" showUserBlogs={false}/> }
+          { loaded && <BlogList filter={user._id} showUserBlogs={false}/> }
         </div>
       </div>
     </div>
