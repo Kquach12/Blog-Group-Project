@@ -5,6 +5,7 @@ module.exports = (app) => {
     app.post('/api/user/register', userController.register);
     app.post('/api/user/login', userController.login);
     app.post('/api/user/logout', userController.logout);
+    app.get('/api/user/getLoggedInUser', userController.getLoggedInUser);
     // TODO: delete one user
     // app.delete('/api/user/:id', userController.deleteOneUser);
 
