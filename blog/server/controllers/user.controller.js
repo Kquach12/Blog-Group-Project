@@ -86,6 +86,14 @@ module.exports = {
     // FIXME: getAll Users should not stay in final code!
     getAll: (req, res) => {
         User.find()
+            .populate({
+                path: "commentsMade",
+                model: "Comment",
+                    populate: {
+                        path: "blogId",
+                        model: "Blog",
+                    }
+            })
             .then((allUsers) => {
                 console.log(allUsers);
                 res.json(allUsers);

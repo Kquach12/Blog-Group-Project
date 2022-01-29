@@ -1,4 +1,6 @@
 const Blog = require("../models/blog.model")
+const jwt = require('jsonwebtoken'); 
+const User = require('../models/user.model');
 
 // same controller functions as in user controller, just written differently
 
@@ -21,9 +23,42 @@ const getOneBlog = (req, res) => {
 }
 
 const addNewBlog = (req, res) => {
-    Blog.create(req.body)
+    // create blog using the req.body from the post
+    const blog = new Blog(req.body);
+    // decoding the JWT for access to the userId
+    const decodedJWT = jwt.decode(req.cookies.usertoken, 
+        { complete: true });
+    // adding user_id to the blog
+    blog.userCreatingId = decodedJWT.payload.user_id;
+
+    Blog.create(blog)
+        // .populate("comments")
         .then((newBlog) => {
-            res.json(newBlog)
+            User.findByIdAndUpdate(
+                newBlog.userCreatingId,
+                {
+                    $push: { blogPostsCreated: newBlog._id }
+                },
+                {
+                    new: true,
+                    useFindAndModify: false
+                },
+            )
+            .populate({
+                path: "blogPostsCreated",
+                model: "User",
+                select: "firstName lastName email"
+                    
+            })
+            .then((updatedUser) => {
+                console.log(`Updated user ${updatedUser}`);
+                res.json(updatedUser);
+            })
+            .catch((err) => {
+                console.log(`Error in adding blog id to user`);
+                console.log(err);
+                res.status(400).json(err);
+            });            
         })
         .catch(err => {
             console.log(err)
