@@ -23,8 +23,15 @@ const BlogList = (props) => {
                     blogs.filter(blog => blog.userCreatingId._id == filterItem).map(filteredBlog =>{
                         return(
                             <div>
+                                <span>
+                                    <p>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
+                                    <p>12/25/2021</p>
+                                </span>
                                 <h3>{filteredBlog.blogPostTitle}</h3>
                                 <h6>{filteredBlog.blogPostDescription}</h6>
+                                <span>
+                                    <Link to={"/" + filteredBlog._id + "/details"}>Open</Link>
+                                </span>
                             </div>
                         )
                     }
@@ -34,8 +41,15 @@ const BlogList = (props) => {
                     blogs.filter(blog => blog.blog.userCreatingId._id =! filterItem).map(filteredBlog =>{
                         return(
                             <div>
+                                <span>
+                                    <p>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
+                                    <p>12/25/2021</p>
+                                </span>
                                 <h3>{filteredBlog.blogPostTitle}</h3>
                                 <h6>{filteredBlog.blogPostDescription}</h6>
+                                <span>
+                                    <Link to={"/" + filteredBlog._id + "/details"}>Open</Link>
+                                </span>
                             </div>
                         )
                     }
