@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const CommentSchema = new mongoose.Schema({
 
     commentText: {
-        type: Text,
+        type: String,
         required: [true, "Content is required to post a comment"],
         minlength: [3, "Comment must exceed 3 characters"]
     },
