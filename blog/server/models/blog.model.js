@@ -2,14 +2,14 @@ const mongoose = require('mongoose');
 
 
 const BlogSchema = new mongoose.Schema({
-    
+
     blogPostTitle: {
         type: Text,
         required: [true, "Your blog must have a title"],
         minlength: [3, "Your post title must be at least 3 characters"],
         maxlength: [50, "Your post title can not exceed 50 characters"]
     },
-    
+
     blogPostContent: {
         type: Text,
         required: [true, "Your blog post must have content"],
@@ -32,4 +32,6 @@ const BlogSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-mongoose.exports = mongoose.model('Blog', BlogSchema);
+const Blog = mongoose.model("Blog", BlogSchema)
+
+module.exports = Blog
