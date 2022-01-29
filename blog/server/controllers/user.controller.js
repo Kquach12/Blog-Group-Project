@@ -83,9 +83,37 @@ module.exports = {
 
     },
 
+    getLoggedInUser: (req, res) => {
+        const decodedJWT = jwt.decode(req.cookies.usertoken, { complete: true });
+        User.findById(decodedJWT.payload.user_id)
+            .populate({                
+                path: "blogPostsCreated",
+                model: "Blog",
+                populate: {
+                    path: "comments",
+                    model: "Comment"
+                }
+            })
+            .then((foundUser) => {
+                console.log(`Found User: ${foundUser}`)
+                res.json(foundUser);
+            })
+            .catch((err) => {
+                res.json(err);
+            })
+    },
+
     // FIXME: getAll Users should not stay in final code!
     getAll: (req, res) => {
         User.find()
+            .populate({
+                path: "commentsMade",
+                model: "Comment",
+                    populate: {
+                        path: "blogId",
+                        model: "Blog",
+                    }
+            })
             .then((allUsers) => {
                 console.log(allUsers);
                 res.json(allUsers);

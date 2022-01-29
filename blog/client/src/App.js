@@ -1,11 +1,12 @@
+import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import './App.css';
-import Main from './views/Main';
+import Home from './views/Home';
 
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Home />
     </div>
   );
 }
