@@ -32,7 +32,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: [true, "Password is required"],
         minLength: [8, "Password must be 8 characters or longer"],
-        select: false
+        // select: false
     },
 
     blogPostsCreated: [
@@ -47,7 +47,12 @@ const UserSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Comment"
         }
-    ]
+    ],
+
+    imageId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Profileimage"
+    },
 
 }, { timestamps: true });
 

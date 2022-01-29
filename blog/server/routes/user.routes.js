@@ -1,14 +1,12 @@
 const userController = require('../controllers/user.controller');
-// TODO: need authenticate jwt.config
+const { authenticate } = require('../config/jwt.config');
 
 module.exports = (app) => {
     app.post('/api/user/register', userController.register);
     app.post('/api/user/login', userController.login);
-    app.post('/api/user/logout', userController.logout);
-    app.get('/api/user/getLoggedInUser', userController.getLoggedInUser);
-    // TODO: delete one user
-    // app.delete('/api/user/:id', userController.deleteOneUser);
-
+    app.post('/api/user/logout', authenticate, userController.logout);
+    app.get('/api/user/getLoggedInUser', authenticate, userController.getLoggedInUser);
+    app.delete('/api/user/:id', authenticate, userController.deleteOneUser);
     
     // FIXME: remove getall from final code!
     app.get('/api/users/getAll', userController.getAll);

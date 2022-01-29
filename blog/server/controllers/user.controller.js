@@ -121,4 +121,15 @@ module.exports = {
             .catch((err) => res.status(400).json(err));
     },
 
+    deleteOneUser: (req, res) => {
+        User.findByIdAndDelete({ _id: req.params.id })
+            .then((deletedUser) => {
+                console.log(`Deleted: ${deletedUser}`);
+                res.json(deletedUser);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    },
+
 }
