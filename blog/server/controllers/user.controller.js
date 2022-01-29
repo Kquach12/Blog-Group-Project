@@ -86,7 +86,7 @@ module.exports = {
     getLoggedInUser: (req, res) => {
         const decodedJWT = jwt.decode(req.cookies.usertoken, { complete: true });
         User.findById(decodedJWT.payload.user_id)
-            .populate({
+            .populate({                
                 path: "blogPostsCreated",
                 model: "Blog",
                 populate: {
