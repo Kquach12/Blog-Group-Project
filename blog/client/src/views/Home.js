@@ -1,7 +1,9 @@
+
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import BlogList from '../components/BlogList';
 import ProfileInfo from '../components/ProfileInfo';
+
 
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
@@ -14,6 +16,7 @@ const Home = () => {
             });
     },[])
   return (
+
     <div className='container'>
       <div className='row'>
         <div className='col'>
