@@ -39,6 +39,13 @@ const UserSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Blog"
         }
+    ],
+
+    commentsMade: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Comment"
+        }
     ]
 
 }, { timestamps: true });
