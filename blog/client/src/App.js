@@ -6,6 +6,7 @@ import Details from './views/Details';
 import Edit from './views/Edit';
 import Home from './views/Home';
 import LogReg from './views/LogReg'
+import Header from './components/Header'
 
 function App() {
   return (
