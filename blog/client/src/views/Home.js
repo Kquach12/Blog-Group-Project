@@ -37,7 +37,7 @@ const Home = () => {
 
   return (
 
-    <div className='container'>
+    <div>
       <div className='row'>
 
         <div className='col-6 d-flex align-items-center flex-column'>
@@ -70,6 +70,7 @@ const Home = () => {
               </span>
             </div>
           </div>
+
           <div className={`${styles.blogContainer} rounded mb-2`}>
             <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
                 <p className={`${styles.bgColorLightBlue} fw-bold`}>Kenny Quach</p>
@@ -83,6 +84,7 @@ const Home = () => {
               </span>
             </div>
           </div>
+
           <div className={`${styles.blogContainer} rounded mb-2`}>
             <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
                 <p className={`${styles.bgColorLightBlue} fw-bold`}>Kenny Quach</p>
@@ -96,6 +98,7 @@ const Home = () => {
               </span>
             </div>
           </div>
+
           {/* end - This is a test blog post. Will delete later */}
 
         </div>
