@@ -20,8 +20,8 @@ const BlogForm = (props) => {
     return (
         <div>
             <div className={`row`}>
-                <div className={`form-group col-md-6 offset-md-3 p-3 mt-2 ${styles.test}`}>
-                    <form onSubmit={onSubmitHandler} className={`${styles.formContainer}`}>
+                <div className={`form-group col-md-6 offset-md-3 p-3 mt-2 ${styles.formContainer}`}>
+                    <form onSubmit={onSubmitHandler} className={`${styles.bgColorLightBlue}`}>
 
                         
                             <p className={`fw-bold ${styles.label}`}>TITLE</p>
