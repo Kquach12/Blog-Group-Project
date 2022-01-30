@@ -4,9 +4,9 @@ import { Link } from '@reach/router';
 
 
 const BlogList = (props) => {
-    const {filter, showUserBlogs} = props
+    const {filterId, showUserBlogs} = props
     const [blogs, setBlogs] = useState([]);
-    const [filterItem, setFilterItem] = useState(filter);
+    const [filterItem, setFilterItem] = useState(filterId);
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/blogs')
