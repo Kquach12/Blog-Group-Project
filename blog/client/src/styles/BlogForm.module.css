@@ -1,11 +1,20 @@
-.test{
+*{
+    background-color: rgb(228, 228, 228);
+}
+
+.formContainer{
     background-color: rgb(111, 178, 255);
     color: white;
     border: 5px solid navy;
     border-radius: 3%;
 }
 
+.bgColorLightBlue{
+    background-color: rgb(111, 178, 255);
+}
+
 .label{
     border-bottom: 4px solid navy;
+    background-color: rgb(111, 178, 255);
 }
 
