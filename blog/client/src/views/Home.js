@@ -36,8 +36,7 @@ const Home = () => {
   return (
 
     <div className='container'>
-          <ProfileInfo user={user}/> 
-          {/* pass user id from user state in this component, rather than using another axios call in the profile component */}
+          <ProfileInfo /> 
       <div className='row'>
 
         <div className='col'>
