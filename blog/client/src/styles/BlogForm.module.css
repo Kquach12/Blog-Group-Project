@@ -1,3 +1,7 @@
+*{
+    background-color: rgb(228, 228, 228);
+}
+
 .formContainer{
     background-color: rgb(111, 178, 255);
     color: white;
