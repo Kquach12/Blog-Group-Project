@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import BlogList from '../components/BlogList';
 import ProfileInfo from '../components/ProfileInfo';
+import { Link } from '@reach/router';
+import styles from '../styles/BlogList.module.css'
 import CommentForm from '../components/CommentForm';
 
 
@@ -35,11 +37,11 @@ const Home = () => {
 
   return (
 
-    <div className='container'>
-          <ProfileInfo /> 
+    <div>
       <div className='row'>
 
-        <div className='col'>
+        <div className='col-6 d-flex align-items-center flex-column'>
+          <ProfileInfo /> 
 
           {/* Use this button to toggle between All Blogs and My Blogs */}
           {
@@ -52,7 +54,53 @@ const Home = () => {
 
         <div className='col'>
           <h2>Blogs start here</h2>
-          <BlogList  showUserBlogs={showBlogsTest}/> 
+          <BlogList filterId={user}  showUserBlogs={showBlogsTest}/>  {/* Will add "user_.id" to filterId when the backend is setup"}
+
+          {/* START - This is a test blog post. Will delete later and move to BlogList */}
+          <div className={`${styles.blogContainer} rounded mb-2`}>
+            <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
+                <p className={`${styles.bgColorLightBlue} fw-bold`}>Kenny Quach</p>
+                <p className={`${styles.bgColorLightBlue} fw-bold`}>12/25/2021</p>
+            </div>
+            <div className='bg-white p-2'>
+              <h3 className='bg-white'>Stocks Keep Going Down</h3>
+              <p className='bg-white'>This is a very sad week because stocks keep going down, and I keep losing money because of it.</p>
+              <span>
+                  <Link to={"/details"}><button className={`${styles.button} btn btn-primary`}>Open</button></Link>
+              </span>
+            </div>
+          </div>
+
+          <div className={`${styles.blogContainer} rounded mb-2`}>
+            <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
+                <p className={`${styles.bgColorLightBlue} fw-bold`}>Kenny Quach</p>
+                <p className={`${styles.bgColorLightBlue} fw-bold`}>12/25/2021</p>
+            </div>
+            <div className='bg-white p-2'>
+              <h3 className='bg-white'>Stocks Keep Going Down</h3>
+              <p className='bg-white'>This is a very sad week because stocks keep going down, and I keep losing money because of it.</p>
+              <span>
+                  <Link to={"/details"}><button className={`${styles.button} btn btn-primary`}>Open</button></Link>
+              </span>
+            </div>
+          </div>
+
+          <div className={`${styles.blogContainer} rounded mb-2`}>
+            <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
+                <p className={`${styles.bgColorLightBlue} fw-bold`}>Kenny Quach</p>
+                <p className={`${styles.bgColorLightBlue} fw-bold`}>12/25/2021</p>
+            </div>
+            <div className='bg-white p-2'>
+              <h3 className='bg-white'>Stocks Keep Going Down</h3>
+              <p className='bg-white'>This is a very sad week because stocks keep going down, and I keep losing money because of it.</p>
+              <span>
+                  <Link to={"/details"}><button className={`${styles.button} btn btn-primary`}>Open</button></Link>
+              </span>
+            </div>
+          </div>
+
+          {/* end - This is a test blog post. Will delete later */}
+
         </div>
 
       </div>
