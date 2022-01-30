@@ -30,9 +30,9 @@ const ProfileInfo = (props) => {
                     {/* <h2>{loggedInUser.firstName} {loggedInUser.lastName}</h2> */}
                     <h4>Neal Ichinohe</h4>
                 </div>
-                <div className="mt-4">
+                {/* <div className="mt-4">
                     <button className="btn btn-lg btn-outline-primary"  onClick={() => navigate('/my-blogs')}> My Blogs </button>
-                </div>
+                </div> */}
             </div>
         </div>
     )
