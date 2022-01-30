@@ -1,0 +1,11 @@
+.test{
+    background-color: rgb(111, 178, 255);
+    color: white;
+    border: 5px solid navy;
+    border-radius: 3%;
+}
+
+.label{
+    border-bottom: 4px solid navy;
+}
+
