@@ -1,6 +1,7 @@
 import { navigate } from '@reach/router';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
+import DeleteBlog from '../components/DeleteBlog';
 
 const Details = (props) => {
   const {id} = props;
@@ -37,7 +38,7 @@ const Details = (props) => {
       </div>
       <div>
         <div><button onClick={() => navigate(`/edit/${id}`)} type="button" class="btn btn-primary">Edit</button></div>
-        <div><button type="button" class="btn btn-primary">Delete</button></div>
+        <div><DeleteBlog id={id}/></div>
       </div>
     </div>
   )
