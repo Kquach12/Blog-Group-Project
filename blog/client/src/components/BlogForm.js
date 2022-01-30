@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import styles from '../styles/BlogForm.module.css'
+import styled from 'styled-components'
 
 const BlogForm = (props) => {
 
@@ -17,24 +19,27 @@ const BlogForm = (props) => {
 
     return (
         <div>
-            <form onSubmit={onSubmitHandler}>
-                <div className='row'>
-                    <div className='form-group col-md-6 offset-md-3'>
-                    
-                        <label className='mt-4'>TITLE</label><br/>
-                        <input type="text" value={blogPostTitle} className='form-control' onChange = {(e)=>setBlogPostTitle(e.target.value)}/>
-                    
-                    
-                        <label className='mt-4'>DESCRIPTION</label><br/>
-                        <textarea value={blogPostDescription} className='form-control' onChange = {(e)=>setBlogPostDescription(e.target.value)} rows={3}></textarea>
-                    
-                        <label>CONTENT</label><br/>
-                        <textarea value={blogPostContent} className='form-control' onChange = {(e)=>setBlogPostContent(e.target.value)} rows={10}></textarea>
-                        <input type="submit" className='btn btn-outline-primary mt-3' style={{'display':'block', 'width':'100%'}}/>
-                    </div>
+            <div className={`row`}>
+                <div className={`form-group col-md-6 offset-md-3 p-3 mt-2 ${styles.test}`}>
+                    <form onSubmit={onSubmitHandler} className={`${styles.formContainer}`}>
 
+                        
+                            <p className={`fw-bold ${styles.label}`}>TITLE</p>
+                            <input type="text" value={blogPostTitle} className='form-control' onChange = {(e)=>setBlogPostTitle(e.target.value)}/>
+                        
+                            <p className={`fw-bold mt-2 ${styles.label}`}>DESCRIPTION</p>
+
+                            <textarea value={blogPostDescription} className='form-control' onChange = {(e)=>setBlogPostDescription(e.target.value)} rows={3}></textarea>
+                        
+                            <p className={`fw-bold mt-2 ${styles.label}`}>CONTENT</p>
+                            <textarea value={blogPostContent} className='form-control' onChange = {(e)=>setBlogPostContent(e.target.value)} rows={10}></textarea>
+
+                            <input type="submit" className={`btn btn-outline-light mt-3`} style={{'display':'block', 'width':'100%'}}/>
+
+                    </form>
                 </div>
-            </form>
+            </div>
+
         </div>
     )
 }
