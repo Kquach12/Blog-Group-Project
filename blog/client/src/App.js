@@ -9,7 +9,7 @@ import LogReg from './views/LogReg'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <Router>
         <LogReg path="/"/>
         <Home path="/home"/>

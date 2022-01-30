@@ -25,7 +25,7 @@ const CreateBlog = (props) => {
             })            
     }
     return (
-        <div className='container'>
+        <div>
             {errors.map((err, index) => <p key={index}>{err}</p>)}
             <BlogForm
                 onSubmitProp={addBlog}
