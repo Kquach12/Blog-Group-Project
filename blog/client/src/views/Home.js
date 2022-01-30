@@ -36,7 +36,7 @@ const Home = () => {
   return (
 
     <div className='container'>
-          {/* <ProfileInfo />  */}
+          <ProfileInfo /> 
       <div className='row'>
 
         <div className='col'>

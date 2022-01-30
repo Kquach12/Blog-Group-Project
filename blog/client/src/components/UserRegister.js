@@ -112,7 +112,7 @@ const UserRegister = () => {
         </div>
         <div className="mb-3 col-6">
             <label className="form-label">Password:</label>
-            <input className="form-control" type="text" value={password}  onChange={(e) => setPassword(e.target.value)}/>
+            <input className="form-control" type="password" value={password}  onChange={(e) => setPassword(e.target.value)}/>
               {
                 errors.password?
                   <p className="text-danger" > {errors.password.message} </p>
@@ -121,7 +121,7 @@ const UserRegister = () => {
         </div>
         <div className="mb-3 col-6">
             <label className="form-label">Confirm Password:</label>
-            <input className="form-control" type="text"  value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+            <input className="form-control" type="password"  value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
               {
                 errors.confirmPassword?
                   <p className="text-danger" > {errors.comfirmPassword.message} </p>
