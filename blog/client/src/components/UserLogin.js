@@ -37,7 +37,7 @@ const UserLogin = () => {
   return (
 
     <div className="container">
-      
+
       <h3 style={{color: "#7393B3"}}> Login </h3>
       <form className='border p-4' onSubmit={ onSubmitHandler }>
         {/* once the upload function is up make sure to add encType="multipart/form-data" to the form*/}
@@ -52,7 +52,7 @@ const UserLogin = () => {
         </div>
         <div className="mb-3 col-6">
             <label className="form-label">Password:</label>
-            <input className="form-control" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
+            <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
               {
                 errors.firstName ?
                   <p className="text-danger" > {errors.password.message} </p>
