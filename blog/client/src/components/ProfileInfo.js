@@ -4,19 +4,19 @@ import { navigate } from '@reach/router';
 
 
 const ProfileInfo = (props) => {
-
+    const { user } = props;
     const [loggedInUser, setLoggedInUser] = useState('');
 
-    // axios.get('http://localhost:8000/api/user/getLoggedInUser', {
-    //     withCredentials: true
-    // })
-    // .then((res) =>{
-    //     console.log(res.data)
-    //     setLoggedInUser(res.data)
-    // })
-    // .catch((err) =>{
-    //     console.log(err)
-    // })
+    axios.get('http://localhost:8000/api/user/getLoggedInUser', {
+        withCredentials: true
+    })
+    .then((res) =>{
+        console.log(res.data)
+        setLoggedInUser(res.data)
+    })
+    .catch((err) =>{
+        console.log(err)
+    })
 
     
 
@@ -27,11 +27,8 @@ const ProfileInfo = (props) => {
                     <i  className="bi bi-person-circle"/>  
                 </div>
                 <div className="mt-4">
-                    {/* <h2>{loggedInUser.firstName} {loggedInUser.lastName}</h2> */}
+                    <h2>{loggedInUser.firstName} {loggedInUser.lastName}</h2>
                     <h4>Neal Ichinohe</h4>
-                </div>
-                <div className="mt-4">
-                    <button className="btn btn-lg btn-outline-primary"  onClick={() => navigate('/my-blogs')}> My Blogs </button>
                 </div>
             </div>
         </div>
