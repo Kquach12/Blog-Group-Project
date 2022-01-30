@@ -23,11 +23,10 @@ const Header = () => {
 
   return (
     <div>
-      <h1>title: work in progress</h1>
-      <div>
-        <button onClick={() => navigate("")}>Button 1</button>
-        <button onClick={() => navigate("")}>Button 2</button>
-        <button onClick={() => navigate("/logout")}>Logout</button>
+      <div className="header">
+        <button onClick={() => navigate("/home")}>Home</button>
+        <button onClick={() => navigate("/create")}>Create New Blog</button>
+        <button onClick={(e) => logout(e)}>Logout</button>
       </div>
     </div>
   )
