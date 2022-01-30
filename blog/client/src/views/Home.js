@@ -36,11 +36,11 @@ const Home = () => {
   return (
 
     <div className='container'>
+          <ProfileInfo /> 
       <div className='row'>
 
         <div className='col'>
 
-          <ProfileInfo /> 
           {/* Use this button to toggle between All Blogs and My Blogs */}
           {
             showBlogsTest ?
