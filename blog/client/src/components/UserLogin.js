@@ -6,7 +6,7 @@ const UserLogin = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errors, setErrors] = useState('');
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -31,26 +31,26 @@ const UserLogin = () => {
     })
     .catch((err) => {
         console.log(err.response);
-        setErrorMessage(err.response.data.message)
+        setErrors(err.response.data.message)
     })
 }
   return (
 
     <div className="container">
-
+      
       <h3 style={{color: "#7393B3"}}> Login </h3>
       <form className='border p-4' onSubmit={ onSubmitHandler }>
         {/* once the upload function is up make sure to add encType="multipart/form-data" to the form*/}
-        <div className="mb-3">
+        <div className="mb-3 col-6">
             <label className="form-label">Email:</label>
-            <input className="form-control" type="text" value={email} onChange={(e) => setFirstName(e.target.value)}/>
+            <input className="form-control" type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
               {
                 errors.firstName ?
                   <p className="text-danger" > {errors.email.message} </p>
                   : null
               }
         </div>
-        <div className="mb-3">
+        <div className="mb-3 col-6">
             <label className="form-label">Password:</label>
             <input className="form-control" type="text" value={password} onChange={(e) => setPassword(e.target.value)}/>
               {
@@ -59,7 +59,7 @@ const UserLogin = () => {
                   : null
               }
         </div>
-        <button type="submit" className="btn btn-primary">Submit Review</button>
+        <button type="submit" className="btn btn-primary">Login</button>
       </form>
     </div>
   )
