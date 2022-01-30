@@ -48,7 +48,7 @@ const BlogList = (props) => {
                                 <h3>{filteredBlog.blogPostTitle}</h3>
                                 <h6>{filteredBlog.blogPostDescription}</h6>
                                 <span>
-                                    <Link to={"/" + filteredBlog._id + "/details"}>Open</Link>
+                                    <Link to={"/details/" + filteredBlog._id }>Open</Link>
                                 </span>
                             </div>
                         )
