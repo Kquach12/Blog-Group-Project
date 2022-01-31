@@ -52,7 +52,7 @@ const Home = () => {
         </div>
 
         <div className='col'>
-          { loaded && <BlogList filterId={user._id} showUserBlogs={showUserBlogs}/>}
+          { loaded && <BlogList filterId={user} showUserBlogs={showUserBlogs}/>}
 
         </div>
 
