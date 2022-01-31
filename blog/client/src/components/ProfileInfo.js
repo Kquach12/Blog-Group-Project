@@ -10,14 +10,14 @@ const ProfileInfo = (props) => {
     const [avatar, setAvatar] = useState('');
 
     // useEffect(() =>{
-    //     axios.get(`https://ui-avatars.com/api/?name=${loggedInUser.firstName}+${loggedInUser.lastName}`)
+    //     axios.get("https://joeschmoe.io/api/v1/random")
     //         .then((res) =>{
-    //             console.log(loggedInUser)
-    //             console.log(res.json)
+                
+    //             console.log(res)
     //             console.log(res.results)
-    //             setAvatar(res.results)
+    //             setAvatar(res.data.results)
     //         })
-    // })
+    // }, [])
 
     useEffect(()=>{
         axios.get('http://localhost:8000/api/user/getLoggedInUser', {
@@ -40,7 +40,7 @@ const ProfileInfo = (props) => {
 
         
         <div className="card" style={{width: "20rem"}} >
-            <img className={`mb-1 card-img-top bg-white ${styles.blogContainer}`} src='../../images/profile.png' alt="Card image cap"/>
+            <img className={`mb-1 card-img-top bg-white ${styles.blogContainer}`} src='https://i.pravatar.cc/300' alt="Card image cap"/>
             <div className={`card-body bg-white  ${styles.blogContainer}`}>
                 <h5 className="card-title bg-white ">{loggedInUser.firstName} {loggedInUser.lastName}</h5>
                 <p className="card-text bg-white ">Some quick example text to build on the card title.</p>
