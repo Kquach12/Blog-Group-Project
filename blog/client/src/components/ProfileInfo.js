@@ -36,17 +36,12 @@ const ProfileInfo = (props) => {
     
 
     return (
-        <div className="container ">
-            <div className={`${styles.blogContainer} rounded mb-2 bg-white p-2`}>
-            <div className="d-flex align-items-center flex-column bg-white">
-                <div className="mt-4 bg-white">
-                    <img className="bg-white" src='../../images/profile.png'/>
-                </div>
-                <div className="mt-4">
-                    <h2 className="bg-white">{loggedInUser.firstName} {loggedInUser.lastName}</h2>
-                    
-                </div>
-            </div>
+        <div className="card" style={{width: '18rem'}}>
+            <img className="card-img-top" src='../../images/profile.png' alt="Card image cap"/>
+            <div className="card-body">
+                <h5 className="card-title">{loggedInUser.firstName} {loggedInUser.lastName}</h5>
+                <p className="card-text">Some quick example text to build on the card title.</p>
+                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
             </div>
         </div>
     )
