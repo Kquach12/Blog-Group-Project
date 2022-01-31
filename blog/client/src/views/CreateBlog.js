@@ -14,7 +14,7 @@ const CreateBlog = (props) => {
             withCredentials: true,
         })
             .then(res =>{
-                navigate("/")
+                navigate("/home")
             })
             .catch(err=>{
                 const errorResponse = err.response.data.errors;

@@ -1,17 +1,26 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { Link } from '@reach/router';
+import styles from '../styles/BlogList.module.css'
+
 
 
 const BlogList = (props) => {
     const {filterId, showUserBlogs} = props
     const [blogs, setBlogs] = useState([]);
-    const [filterItem, setFilterItem] = useState(filterId);
+    const [filterItem, setFilterItem] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/blogs')
             .then(res => setBlogs(res.data))
-    }, [])
+    }, [showUserBlogs])
+
+    useEffect(()=>{
+        axios.get('http://localhost:8000/api/user/getLoggedInUser', {withCredentials:true})
+            .then(res=>{ setFilterItem(res.data);
+            })
+    },[])
+
     
 
 //Display list of blogs depending on whether we want to see active user's blogs or all other blogs
@@ -20,36 +29,40 @@ const BlogList = (props) => {
             {
                 // Show a user's blogs
                 showUserBlogs ?
-                    blogs.filter(blog => blog.userCreatingId._id == filterItem).map(filteredBlog =>{
+                    blogs.filter(blog => blog.userCreatingId == filterItem._id).map(filteredBlog =>{
                         return(
-                            <div key={filteredBlog._id}>
+                            <div key={filteredBlog._id} className={`${styles.blogContainer} rounded mb-2`}>
+                                <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
+                                    <p className={`${styles.bgColorLightBlue} fw-bold`}>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
+                                    <p className={`${styles.bgColorLightBlue} fw-bold`}>12/25/2021</p>
+                                </div>
+                                <div className='bg-white p-2'>
+                                <h3 className='bg-white'>{filteredBlog.blogPostTitle}</h3>
+                                <p className='bg-white'>{filteredBlog.blogPostDescription}</p>
                                 <span>
-                                    <p>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
-                                    <p>12/25/2021</p>
+                                    <Link to={"/details/" + filteredBlog._id}><button className={`${styles.button} btn btn-primary`}>Open</button></Link>
                                 </span>
-                                <h3>{filteredBlog.blogPostTitle}</h3>
-                                <h6>{filteredBlog.blogPostDescription}</h6>
-                                <span>
-                                    <Link to={"/" + filteredBlog._id + "/details"}>Open</Link>
-                                </span>
+                                </div>
                             </div>
                         )
                     }
                     )
                 :
                 //Show all other blogs
-                    blogs.filter(blog => blog.userCreatingId._id != filterItem).map(filteredBlog =>{
+                    blogs.filter(blog => blog.userCreatingId != filterItem._id).map(filteredBlog =>{
                         return(
-                            <div key={filteredBlog._id}>
+                            <div key={filteredBlog._id} className={`${styles.blogContainer} rounded mb-2`}>
+                                <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
+                                    <p className={`${styles.bgColorLightBlue} fw-bold`}>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
+                                    <p className={`${styles.bgColorLightBlue} fw-bold`}>12/25/2021</p>
+                                </div>
+                                <div className='bg-white p-2'>
+                                <h3 className='bg-white'>{filteredBlog.blogPostTitle}</h3>
+                                <p className='bg-white'>{filteredBlog.blogPostDescription}</p>
                                 <span>
-                                    <p>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
-                                    <p>12/25/2021</p>
+                                    <Link to={"/details/" + filteredBlog._id}><button className={`${styles.button} btn btn-primary`}>Open</button></Link>
                                 </span>
-                                <h3>{filteredBlog.blogPostTitle}</h3>
-                                <h6>{filteredBlog.blogPostDescription}</h6>
-                                <span>
-                                    <Link to={"/details/" + filteredBlog._id }>Open</Link>
-                                </span>
+                                </div>
                             </div>
                         )
                     }
