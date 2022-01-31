@@ -8,18 +8,13 @@ import styles from '../styles/BlogList.module.css'
 const BlogList = (props) => {
     const {filterId, showUserBlogs} = props
     const [blogs, setBlogs] = useState([]);
-    const [filterItem, setFilterItem] = useState([]);
+
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/blogs')
+        axios.get('http://localhost:8000/api/blogs', {withCredentials: true})
             .then(res => setBlogs(res.data))
     }, [showUserBlogs])
 
-    useEffect(()=>{
-        axios.get('http://localhost:8000/api/user/getLoggedInUser', {withCredentials:true})
-            .then(res=>{ setFilterItem(res.data);
-            })
-    },[])
 
     
 
@@ -29,7 +24,7 @@ const BlogList = (props) => {
             {
                 // Show a user's blogs
                 showUserBlogs ?
-                    blogs.filter(blog => blog.userCreatingId == filterItem._id).map(filteredBlog =>{
+                    blogs.filter(blog => blog.userCreatingId == filterId._id).map(filteredBlog =>{
                         return(
                             <div key={filteredBlog._id} className={`${styles.blogContainer} rounded mb-2`}>
                                 <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
@@ -49,7 +44,7 @@ const BlogList = (props) => {
                     )
                 :
                 //Show all other blogs
-                    blogs.filter(blog => blog.userCreatingId != filterItem._id).map(filteredBlog =>{
+                    blogs.filter(blog => blog.userCreatingId != filterId._id).map(filteredBlog =>{
                         return(
                             <div key={filteredBlog._id} className={`${styles.blogContainer} rounded mb-2`}>
                                 <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
