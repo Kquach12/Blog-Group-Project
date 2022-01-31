@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { navigate, Link } from '@reach/router';
+import styles from '../styles/BlogList.module.css'
 
 const UserLogin = () => {
 
@@ -38,10 +39,10 @@ const UserLogin = () => {
 
     <div className="container">
 
-      <h3 style={{color: "#7393B3"}}> Login </h3>
-      <form className='border p-4' onSubmit={ onSubmitHandler }>
+      <h3 > Login </h3>
+      <form className={`${styles.blogContainer} rounded mb-2 p-2`} onSubmit={ onSubmitHandler }>
         {/* once the upload function is up make sure to add encType="multipart/form-data" to the form*/}
-        <div className="mb-3 col-6">
+        <div className="mb-3 col-8">
             <label className="form-label">Email:</label>
             <input className="form-control" type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
               {
@@ -50,7 +51,7 @@ const UserLogin = () => {
                   : null
               }
         </div>
-        <div className="mb-3 col-6">
+        <div className="mb-3 col-8">
             <label className="form-label">Password:</label>
             <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
               {
@@ -59,7 +60,9 @@ const UserLogin = () => {
                   : null
               }
         </div>
-        <button type="submit" className="btn btn-primary">Login</button>
+        <span>
+          <button  className={`${styles.button} btn btn-primary`}>Login</button>
+        </span>
       </form>
     </div>
   )
