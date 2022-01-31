@@ -22,7 +22,7 @@ const BlogList = (props) => {
                 showUserBlogs ?
                     blogs.filter(blog => blog.userCreatingId._id == filterItem).map(filteredBlog =>{
                         return(
-                            <div>
+                            <div key={filteredBlog._id}>
                                 <span>
                                     <p>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
                                     <p>12/25/2021</p>
@@ -40,7 +40,7 @@ const BlogList = (props) => {
                 //Show all other blogs
                     blogs.filter(blog => blog.userCreatingId._id != filterItem).map(filteredBlog =>{
                         return(
-                            <div>
+                            <div key={filteredBlog._id}>
                                 <span>
                                     <p>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
                                     <p>12/25/2021</p>

@@ -20,14 +20,13 @@ const Home = () => {
         axios.get('http://localhost:8000/api/blogs')
             .then(res=>{
                 setBlogs(res.data);
-                // setLoaded(true);
+                setLoaded(true);
             })
     },[])
 
     useEffect(()=>{
       axios.get('http://localhost:8000/api/user/getLoggedInUser', {withCredentials:true})
           .then(res=>{ setUser(res.data);
-            setLoaded(true);
           })
     },[])
 
