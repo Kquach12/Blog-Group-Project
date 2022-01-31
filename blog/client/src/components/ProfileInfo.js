@@ -36,13 +36,17 @@ const ProfileInfo = (props) => {
     
 
     return (
-        <div className="card" style={{width: '18rem'}}>
-            <img className="card-img-top" src='../../images/profile.png' alt="Card image cap"/>
-            <div className="card-body">
+        <div >
+
+        
+        <div className="card" style={{width: "20rem"}} >
+            <img className={`mb-1 card-img-top bg-white ${styles.blogContainer}`} src='../../images/profile.png' alt="Card image cap"/>
+            <div className={`card-body ${styles.blogContainer}`}>
                 <h5 className="card-title">{loggedInUser.firstName} {loggedInUser.lastName}</h5>
                 <p className="card-text">Some quick example text to build on the card title.</p>
                 {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
             </div>
+        </div>
         </div>
     )
 }
