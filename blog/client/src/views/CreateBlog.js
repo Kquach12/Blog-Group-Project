@@ -10,7 +10,9 @@ const CreateBlog = (props) => {
     const [errors, setErrors] = useState([]);
 
     const addBlog = blog => {
-        axios.post('http://localhost:8000/api/blogs', blog)
+        axios.post('http://localhost:8000/api/blogs', blog, {
+            withCredentials: true,
+        })
             .then(res =>{
                 navigate("/")
             })
