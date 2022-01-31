@@ -54,7 +54,7 @@ const Home = () => {
 
         <div className='col'>
           <h2>Blogs start here</h2>
-          <BlogList filterId={user}  showUserBlogs={showBlogsTest}/>  {/* Will add "user_.id" to filterId when the backend is setup"}
+          { loaded && <BlogList filterId={user}  showUserBlogs={showBlogsTest}/>}  {/* Will add "user_.id" to filterId when the backend is setup"}
 
           {/* START - This is a test blog post. Will delete later and move to BlogList */}
           <div className={`${styles.blogContainer} rounded mb-2`}>

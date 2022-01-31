@@ -22,10 +22,12 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
-      <div><button onClick={() => navigate("/home")} type="button" class="btn btn-info">Home</button></div>
-      <div><button onClick={() => navigate("/create")} type="button" class="btn btn-info">Create a New Blog</button></div>
-      <div><button onClick={(e) => logout(e)} type="button" class="btn btn-info">Logout</button></div>
+    <div className="container">
+      <div class="d-flex col-6 offset-md-7 justify-content-between">
+        <div><button onClick={() => navigate("/home")} type="button" class="btn btn-info">Home</button></div>
+        <div><button onClick={() => navigate("/create")} type="button" class="btn btn-info">Create a New Blog</button></div>
+        <div><button onClick={(e) => logout(e)} type="button" class="btn btn-info">Logout</button></div>
+      </div>
     </div>
   )
 }
