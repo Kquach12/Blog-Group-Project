@@ -1,7 +1,6 @@
 import React from 'react'
 import UserLogin from '../components/UserLogin'
 import UserRegister from '../components/UserRegister';
-import styled from 'styled-components';
 
 
 const LogReg = () => {
