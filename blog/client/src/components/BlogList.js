@@ -12,7 +12,7 @@ const BlogList = (props) => {
         axios.get('http://localhost:8000/api/blogs')
             .then(res => setBlogs(res.data))
     }, [])
-
+    
 
 //Display list of blogs depending on whether we want to see active user's blogs or all other blogs
     return (
