@@ -38,7 +38,7 @@ const BlogList = (props) => {
                     )
                 :
                 //Show all other blogs
-                    blogs.filter(blog => blog.blog.userCreatingId._id =! filterItem).map(filteredBlog =>{
+                    blogs.filter(blog => blog.userCreatingId._id =! filterItem).map(filteredBlog =>{
                         return(
                             <div>
                                 <span>
