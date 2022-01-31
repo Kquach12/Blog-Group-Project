@@ -7,6 +7,7 @@ import Edit from './views/Edit';
 import Home from './views/Home';
 import LogReg from './views/LogReg'
 
+
 function App() {
   return (
     <div className="App container">

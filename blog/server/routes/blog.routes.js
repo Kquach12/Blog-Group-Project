@@ -7,3 +7,4 @@ module.exports = (app) => {
     app.put('/api/blogs/:id', BlogController.updateBlog);
     app.delete('/api/blogs/:id', BlogController.deleteBlog)
 }
+
