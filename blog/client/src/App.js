@@ -6,6 +6,7 @@ import Details from './views/Details';
 import Edit from './views/Edit';
 import Home from './views/Home';
 import LogReg from './views/LogReg'
+import Footer from './components/Footer';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Edit path="/edit/:id" />
         <Details path="/details/:id" />
       </Router>
+      <Footer/>
     </div>
   );
 }
