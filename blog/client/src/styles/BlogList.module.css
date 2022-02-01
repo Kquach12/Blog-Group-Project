@@ -3,6 +3,7 @@
     color: navy;
     text-decoration: none;
     border: 1.5px solid navy;
+    min-width: 62px;
 }
 
 .button:hover{

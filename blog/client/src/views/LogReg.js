@@ -11,7 +11,7 @@ const LogReg = () => {
         <h5>Please register or login if already a registered user!</h5>
       </div>
       <div className="row">
-        <div className='col-4'>
+        <div className='col-4 offset-md-2'>
           <UserRegister/>
         </div>
         <div className='col-4'>
