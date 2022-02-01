@@ -1,12 +1,13 @@
 import React from 'react'
+import '../App.css'
 
 
 const Footer = () =>{
 
-  
+
 
   return (
-      
+
           <div className="" style={{height: "2.5rem"}}>
 
             <footer className='footer'>
@@ -20,7 +21,7 @@ const Footer = () =>{
                         <span className="d-flex align-items-center">
                         @ {new Date().getFullYear()} All Rights Reserved. Community Blog
                         </span>
-                    
+
                 </span>
               </div>
             </footer>
