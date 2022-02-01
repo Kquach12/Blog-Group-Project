@@ -8,10 +8,10 @@ const Footer = () =>{
 
   return (
 
-          <div className="" style={{height: "2.5rem"}}>
+          <div className="footer-div" style={{height: "2.5rem"}}>
 
             <footer className='footer'>
-              <div className='container'>
+              <div className='container footer-span'>
                 <span className="d-flex justify-content-center text-muted">
                   <i style={{fontSize: "2rem"}} className="me-4 bi bi-instagram"></i>
                   <i style={{fontSize: "2rem"}} className="me-4 bi bi-facebook"></i>
