@@ -40,6 +40,8 @@ const Home = () => {
       <div className='row'>
 
         <div className='col-6 d-flex align-items-center mt-5 flex-column'>
+
+          {/* Pass user info to Profile component as a prop, so we can reuse that component */}
           <ProfileInfo loggedInUserProp = {user} /> 
 
           {/* Use this button to toggle between All Blogs and My Blogs */}

@@ -18,7 +18,7 @@ const BlogList = (props) => {
 
     
 
-//Display list of blogs depending on whether we want to see active user's blogs or all other blogs
+//Display list of blogs depending on whether we want to see active user's blogs or all other blogs. Get that info from Home props
     return (
         <div>
             {
@@ -55,7 +55,7 @@ const BlogList = (props) => {
                                 <h3 className='bg-white'>{filteredBlog.blogPostTitle}</h3>
                                 <p className='bg-white'>{filteredBlog.blogPostDescription}</p>
                                 <span>
-                                    <Link to={"/details/" + filteredBlog._id}><button className={`${styles.button} btn btn-primary`}>Open</button></Link>
+                                    <Link to={"/details/" + filteredBlog._id}><button className={`${styles.button} rounded p-2`}>Open</button></Link>
                                 </span>
                                 </div>
                             </div>

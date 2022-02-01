@@ -43,9 +43,7 @@ const Details = (props) => {
           </div>
           
           <div className="bg-white p-2 d-flex justify-content-start">
-            <span className="bg-white">
-              <button onClick={() => navigate(`/edit/${id}`)} type="button" className={`${styles.button} btn me-2 `} >Edit</button>
-            </span>
+            <button onClick={() => navigate(`/edit/${id}`)} type="button" className={`${styles.button} rounded p-2 me-2 `} >Edit</button>
             
             <DeleteBlog  id={id}/>
           </div>

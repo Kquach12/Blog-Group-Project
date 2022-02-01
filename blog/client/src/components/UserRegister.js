@@ -138,9 +138,7 @@ const UserRegister = () => {
                       : null
                   }
         </div>
-        <span>
-          <button  className={`${styles.button} btn btn-primary`}>Register</button>
-        </span>
+          <button  className={`${styles.button} rounded p-2`}>Register</button>
         </div>
     </form>
   </div>

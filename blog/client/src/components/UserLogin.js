@@ -60,9 +60,7 @@ const UserLogin = () => {
                   : null
               }
         </div>
-        <span>
-          <button  className={`${styles.button} btn btn-primary`}>Login</button>
-        </span>
+          <button  className={`${styles.button} rounded p-2`}>Login</button>
       </form>
     </div>
   )

@@ -12,7 +12,7 @@ const DeleteBlog = (props) => {
         })
             .then((res) => {
                 console.log(res.data);
-                navigate('/my-blogs');
+                navigate('/home');
             })
             .catch((err) =>  {
                 if(err.response.status === 401) {
@@ -22,9 +22,7 @@ const DeleteBlog = (props) => {
             });
     }
   return (
-    <span className='bg-white'>
-      <button className={`${styles.button} btn btn-primary`}  onClick={ onClickDelete }>Delete</button>
-    </span>
+      <button className={`${styles.button} rounded p-2`}  onClick={ onClickDelete }>Delete</button>
   )
 }
 
