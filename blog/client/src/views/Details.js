@@ -2,6 +2,8 @@ import { navigate } from '@reach/router';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import DeleteBlog from '../components/DeleteBlog';
+import styles from '../styles/BlogList.module.css'
+
 
 const Details = (props) => {
   const {id} = props;
@@ -24,23 +26,32 @@ const Details = (props) => {
 // NOTE: delete button at the bottom still needs the delete functionality. 
 
   return (
-    <div>
-      <div className="edit-blog-title">
-        <h2>{title}</h2>
-      </div>
-      <div className="edit-blog-body">
-        <p>{description}</p>
-        <br />
-        <p>{content}</p>
-      </div>
-      <div className="edit-blog-comments">
-        {comments}
-      </div>
-      <div>
-        <div><button onClick={() => navigate(`/edit/${id}`)} type="button" class="btn btn-primary">Edit</button></div>
-        <div><DeleteBlog id={id}/></div>
-      </div>
-    </div>
+    
+      
+        <div className={`row ${styles.blogContainer} rounded mb-2`}>
+          <div className={`${styles.blogContainerName}`}>
+            <h2 className={`${styles.bgColorLightBlue} fw-bold`}>{title}</h2>
+          </div>
+          <div className="bg-white">
+            <h4 className={`bg-white fw-bold mt-2  ${styles.label}`}>{description}</h4>
+            <br />
+            <p className={`bg-white fw-bold mt-2 ${styles.label}`}>{content}</p>
+
+          </div>
+          <div className="edit-blog-comments">
+            {comments}
+          </div>
+          
+          <div className="bg-white p-2 d-flex justify-content-start">
+            <span className="bg-white">
+              <button onClick={() => navigate(`/edit/${id}`)} type="button" className={`${styles.button} btn me-2 `} >Edit</button>
+            </span>
+            
+            <DeleteBlog  id={id}/>
+          </div>
+        </div>
+      
+    
   )
 }
 
