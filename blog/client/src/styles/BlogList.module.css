@@ -1,12 +1,14 @@
-span .button{
-    background-color: navy;
-    color: white;
+.button{
+    background-color: white;
+    color: navy;
     text-decoration: none;
-    border: none;
+    border: 1.5px solid navy;
 }
 
-span .button:hover{
+.button:hover{
+    color: white;
     background-color: navy;
+    border: 1.5px solid navy;
 }
 
 .blogContainer{

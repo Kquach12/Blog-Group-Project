@@ -5,8 +5,8 @@ import styles from '../styles/BlogList.module.css'
 
 
 const ProfileInfo = (props) => {
-    const { user } = props
-    const [loggedInUser, setLoggedInUser] = useState('');
+    const { loggedInUserProp } = props
+    // const [loggedInUser, setLoggedInUser] = useState(loggedInUserProp);
     const [avatar, setAvatar] = useState('');
 
     // useEffect(() =>{
@@ -19,19 +19,19 @@ const ProfileInfo = (props) => {
     //         })
     // }, [])
 
-    useEffect(()=>{
-        axios.get('http://localhost:8000/api/user/getLoggedInUser', {
-            withCredentials: true
-        })
-        .then((res) =>{
-            console.log(res.data)
-            setLoggedInUser(res.data)
-        })
-        .catch((err) =>{
-            console.log(err)
-        })
+    // useEffect(()=>{
+    //     axios.get('http://localhost:8000/api/user/getLoggedInUser', {
+    //         withCredentials: true
+    //     })
+    //     .then((res) =>{
+    //         console.log(res.data)
+    //         setLoggedInUser(res.data)
+    //     })
+    //     .catch((err) =>{
+    //         console.log(err)
+    //     })
     
-    },[])
+    // },[])
     
     
 
@@ -39,10 +39,10 @@ const ProfileInfo = (props) => {
         <div >
 
         
-        <div className="card" style={{width: "20rem"}} >
-            <img className={`mb-1 card-img-top bg-white ${styles.blogContainer}`} src='https://i.pravatar.cc/300' alt="Card image cap"/>
-            <div className={`card-body bg-white  ${styles.blogContainer}`}>
-                <h5 className="card-title bg-white ">{loggedInUser.firstName} {loggedInUser.lastName}</h5>
+        <div className="" style={{width: "20rem"}} >
+            <img className={`mb-1 card-img-top bg-white rounded-circle ${styles.blogContainer}`} src='https://i.pravatar.cc/300' alt="Card image cap"/>
+            <div className={`card-body bg-white text-center ${styles.blogContainer}`}>
+                <h3 className="card-title bg-white ">{loggedInUserProp.firstName} {loggedInUserProp.lastName}</h3>
                 <p className="card-text bg-white ">Some quick example text to build on the card title.</p>
                 {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
             </div>
