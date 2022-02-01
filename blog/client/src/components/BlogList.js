@@ -24,12 +24,12 @@ const BlogList = (props) => {
             {
                 // Show a user's blogs
                 showUserBlogs ?
-                    blogs.filter(blog => blog.userCreatingId == filterId._id).map(filteredBlog =>{
+                    blogs.filter(blog => blog.userCreatingId._id == filterId._id).map(filteredBlog =>{
                         return(
                             <div key={filteredBlog._id} className={`${styles.blogContainer} rounded mb-2`}>
                                 <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
                                     <p className={`${styles.bgColorLightBlue} fw-bold`}>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
-                                    <p className={`${styles.bgColorLightBlue} fw-bold`}>12/25/2021</p>
+                                    <p className={`${styles.bgColorLightBlue} fw-bold`}>{filteredBlog.createdAt.split("T")[0]}</p>
                                 </div>
                                 <div className='bg-white p-2'>
                                 <h3 className='bg-white'>{filteredBlog.blogPostTitle}</h3>
@@ -44,7 +44,7 @@ const BlogList = (props) => {
                     )
                 :
                 //Show all other blogs
-                    blogs.filter(blog => blog.userCreatingId != filterId._id).map(filteredBlog =>{
+                    blogs.filter(blog => blog.userCreatingId._id != filterId._id).map(filteredBlog =>{
                         return(
                             <div key={filteredBlog._id} className={`${styles.blogContainer} rounded mb-2`}>
                                 <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
