@@ -6,7 +6,15 @@ const User = require('../models/user.model');
 
 const getAllBlogs = (req, res) => {
     Blog.find({})
-        .then(allBlogs => res.json(allBlogs))
+        .populate({
+            path: "userCreatingId",
+            model: "User",
+            select: "firstName lastName email"
+        })
+        .then(allBlogs => {
+            res.json(allBlogs);
+            console.log(`All Blogs: ${allBlogs}`);
+        })
         .catch(err => {
             console.log(err)
             res.status(400).json(err)
