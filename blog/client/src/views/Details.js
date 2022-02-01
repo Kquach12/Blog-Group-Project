@@ -12,7 +12,7 @@ const Details = (props) => {
 
   useEffect(() =>
   {
-    axios.get(`http:localhost:800-/api/blogs/${id}`, {withCredentials: true})
+    axios.get(`http://localhost:8000/api/blogs/${id}`, {withCredentials: true})
       .then(res => {
         setTitle(res.data.blogPostTitle)
         setDescription(res.data.blogPostDescription)

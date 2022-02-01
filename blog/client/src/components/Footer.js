@@ -7,7 +7,7 @@ const Footer = () =>{
 
   return (
       
-          <div className="fixed-bottom" style={{height: "5rem"}}>
+          <div className="" style={{height: "2.5rem"}}>
 
             <footer className='footer'>
               <div className='container'>

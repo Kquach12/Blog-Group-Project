@@ -83,7 +83,7 @@ const UserRegister = () => {
     }
       <form className={`${styles.blogContainer} rounded mb-2 p-2`} onSubmit={ onSubmitHandler }>
         {/* once the upload function is up make sure to add encType="multipart/form-data" to the form*/}
-        <div className="mb-3 col-8">
+        <div className="mb-3 col-10">
             <label className="form-label">First Name:</label>
             <input className="form-control" type="text" value={firstName}  onChange={(e) => setFirstName(e.target.value)}/>
               {
@@ -92,7 +92,7 @@ const UserRegister = () => {
                   : null
               }
         </div>
-        <div className="mb-3 col-8">
+        <div className="mb-3 col-10">
             <label className="form-label">Last Name:</label>
             <input className="form-control" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
               {
@@ -102,7 +102,7 @@ const UserRegister = () => {
               }
         </div>  
         <div>
-          <div className="mb-3 col-8">
+          <div className="mb-3 col-10">
             <label className="form-label">Email Name:</label>
             <input className="form-control" type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
               {
@@ -111,7 +111,7 @@ const UserRegister = () => {
                   : null
               }
         </div>
-        <div className="mb-3 col-8">
+        <div className="mb-3 col-10">
             <label className="form-label">Password:</label>
             <input className="form-control" type="password" value={password}  onChange={(e) => setPassword(e.target.value)}/>
               {
@@ -120,7 +120,7 @@ const UserRegister = () => {
                   : null
               }
         </div>
-        <div className="mb-3 col-8">
+        <div className="mb-3 col-10">
             <label className="form-label">Confirm Password:</label>
             <input className="form-control" type="password"  value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
               {
@@ -129,7 +129,7 @@ const UserRegister = () => {
                   : null
               }
         </div>  
-        <div className="mb-3 col-8">
+        <div className="mb-3 col-10">
                   <label className="form-label">Upload Photos</label>
                   <input className="form-control form-control-sm" type="file" name="image" onChange = { onChangeImage }/>
                   {
