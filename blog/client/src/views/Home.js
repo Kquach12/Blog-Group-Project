@@ -39,15 +39,15 @@ const Home = () => {
     <div>
       <div className='row'>
 
-        <div className='col-6 d-flex align-items-center flex-column'>
-          <ProfileInfo /> 
+        <div className='col-6 d-flex align-items-center mt-5 flex-column'>
+          <ProfileInfo loggedInUserProp = {user} /> 
 
           {/* Use this button to toggle between All Blogs and My Blogs */}
           {
             showUserBlogs ?
-              <button onClick={changeBlogs} className='btn btn-primary'>All Blogs</button>
+              <button onClick={changeBlogs} className={`${styles.button} rounded p-2 mt-2 fw-bold`}>All Blogs</button>
             :
-              <button onClick={changeBlogs} className='btn btn-primary'>My Blogs</button>
+              <button onClick={changeBlogs} className={`${styles.button} rounded p-2 mt-2 fw-bold`}>My Blogs</button>
           }
         </div>
 
