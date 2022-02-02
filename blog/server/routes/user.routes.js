@@ -11,4 +11,6 @@ module.exports = (app) => {
     // FIXME: remove getall from final code!
     app.get('/api/users/getAll', userController.getAll);
 
+    app.get('/api/user/:id', userController.getOneUser)
+
 }
