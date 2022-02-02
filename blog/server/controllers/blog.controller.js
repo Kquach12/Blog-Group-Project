@@ -25,7 +25,11 @@ const getOneBlog = (req, res) => {
     Blog.findOne( {_id: req.params.id} )
         .populate ({
             path: "comments",
-            model: "Comment"
+            model: "Comment",
+            populate: {
+                path: "createdBy",
+                model: "User"
+            }
         })
         .then(oneBlog => {
             console.log(`One BLOG::: ${oneBlog}`);
@@ -62,8 +66,7 @@ const addNewBlog = (req, res) => {
             .populate({
                 path: "blogPostsCreated",
                 model: "User",
-                select: "firstName lastName email"
-                    
+                select: "firstName lastName email",                    
             })
             .then((updatedUser) => {
                 console.log(`Updated user ${updatedUser}`);

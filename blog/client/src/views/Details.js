@@ -71,7 +71,8 @@ const Details = (props) => {
             blog.comments.slice(0).reverse().map((comment) => {
               return(
                 <div key={comment._id}>
-                  <p>{comment.commentText} </p>
+                  <p>
+                    {comment.createdBy.firstName} {comment.createdBy.lastName} {comment.commentText} </p>
                 </div>
               )
             })
