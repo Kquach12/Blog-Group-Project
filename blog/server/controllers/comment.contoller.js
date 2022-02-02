@@ -12,7 +12,7 @@ module.exports = {
         const decodedJWT = jwt.decode(req.cookies.usertoken,
             { complete: true });
         // adding user_id to the comment
-        comment.userId = decodedJWT.payload.user_id;
+        comment.createdBy = decodedJWT.payload.user_id;
         // add comment to the collection
         Comment.create(comment)
             .then((newComment) => {
