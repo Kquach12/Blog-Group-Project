@@ -18,22 +18,18 @@ const CreateBlog = (props) => {
             })
             .catch(err=>{
                 const errorResponse = err.response.data.errors;
-                const errorArr = []; 
-                for (const key of Object.keys(errorResponse)) { 
-                    errorArr.push(errorResponse[key].message)
-                }
-                // Set Errors
-                setErrors(errorArr);
+                console.log(errorResponse)
+                setErrors(errorResponse);
             })            
     }
     return (
         <div>
-            {errors.map((err, index) => <p key={index}>{err}</p>)}
             <BlogForm
                 onSubmitProp={addBlog}
                 initialBlogPostTitle={""}
                 initialBlogPostDescription={""}
                 initialBlogPostContent={""}
+                errors = {errors}
             />
         </div>
     )
