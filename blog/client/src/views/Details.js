@@ -4,6 +4,7 @@ import React, {useState, useEffect} from 'react'
 import DeleteBlog from '../components/DeleteBlog';
 import styles from '../styles/BlogList.module.css'
 import CommentForm from '../components/CommentForm';
+import { format } from 'date-fns';
 
 
 const Details = (props) => {
@@ -29,7 +30,7 @@ const Details = (props) => {
         setBlog(res.data);
         setLoaded(true);
       })
-  }, [id])
+  }, [comments])
 
   useEffect(()=>{
     axios.get('http://localhost:8000/api/user/getLoggedInUser', {withCredentials:true})
@@ -57,7 +58,8 @@ const Details = (props) => {
           </div>
 
           {
-            blogCreator == user._id ?
+            loaded &&
+            (blogCreator === user._id && loaded) ?
               <div className="bg-white p-2 d-flex justify-content-start">
                 <button onClick={() => navigate(`/edit/${id}`)} type="button" className={`${styles.button} rounded p-2 me-2 `} >Edit</button>
                 
@@ -72,7 +74,7 @@ const Details = (props) => {
               return(
                 <div key={comment._id}>
                   <p>
-                    {comment.createdBy.firstName} {comment.createdBy.lastName} {comment.commentText} </p>
+                  <span className='bold'>{format(new Date(comment.createdAt), ' MMMM-dd-hh:mm')}</span>{comment.createdBy.firstName} {comment.createdBy.lastName} {comment.commentText} </p>
                 </div>
               )
             })
