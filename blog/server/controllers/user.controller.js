@@ -103,6 +103,17 @@ module.exports = {
             })
     },
 
+    getOneUser: (req, res) => {
+        User.findById({ _id: req.params.id })
+            .then((foundUser) => {
+                console.log(`One Found User: ${foundUser}`)
+                res.json(foundUser);
+            })
+            .catch((err) => {
+                res.json(err);
+            })
+    },
+
     // FIXME: getAll Users should not stay in final code!
     getAll: (req, res) => {
         User.find()

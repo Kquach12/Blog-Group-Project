@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react'
 import DeleteBlog from '../components/DeleteBlog';
 import styles from '../styles/BlogList.module.css'
+import CommentForm from '../components/CommentForm';
 
 
 const Details = (props) => {
@@ -10,7 +11,7 @@ const Details = (props) => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [content, setContent] = useState('')
-  const [comments, setComments] = useState([])
+  const [comments, setComments] = useState([]);
   const [blogCreator, setBlogCreator] = useState('')
   const [user, setUser] = useState([])
   const [loaded, setLoaded] = useState(false)
@@ -75,6 +76,11 @@ const Details = (props) => {
               )
             })
           }
+
+          {
+            loaded &&
+            <CommentForm blogId={blog._id} initialComment="" comments={comments} setComments={setComments} />
+          } 
         </div>
       
     
