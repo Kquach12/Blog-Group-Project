@@ -25,24 +25,21 @@ const Edit = (props) => {
             .then(res => navigate('/'))
             .catch(err=>{
                 const errorResponse = err.response.data.errors;
-                const errorArr = []; // Define a temp error array to push the messages in
-                for (const key of Object.keys(errorResponse)) { // Loop through all errors and get the messages
-                    errorArr.push(errorResponse[key].message)
-                }
-                // Set Errors
-                setErrors(errorArr);
+                console.log(errorResponse)
+                setErrors(errorResponse);
             })  
     }
     return (
         <div>
             {loaded && (
                 <div>
-                    {errors.map((err, index) => <p key={index}>{err}</p>)}
+                    {/* {errors.map((err, index) => <p key={index}>{err}</p>)} */}
                     <BlogForm
                         onSubmitProp={updateBlog}
                         initialBlogPostTitle={blog.blogPostTitle}
                         initialBlogPostDescription={blog.blogPostDescription}
                         initialBlogPostContent={blog.blogPostContent}
+                        errors = {errors}
                     />
                 </div>
             )}
