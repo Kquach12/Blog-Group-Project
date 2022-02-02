@@ -10,9 +10,11 @@ const Details = (props) => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [content, setContent] = useState('')
-  const [comments, setComments] = useState('')
+  const [comments, setComments] = useState([])
   const [blogCreator, setBlogCreator] = useState('')
   const [user, setUser] = useState([])
+  const [loaded, setLoaded] = useState(false)
+  const [blog, setBlog] = useState();
 
   useEffect(() =>
   {
@@ -21,8 +23,10 @@ const Details = (props) => {
         setTitle(res.data.blogPostTitle)
         setDescription(res.data.blogPostDescription)
         setContent(res.data.blogPostContent)
-        setComments(res.data.comments)
+        // setComments(res.data.comments)
         setBlogCreator(res.data.userCreatingId)
+        setBlog(res.data);
+        setLoaded(true);
       })
   }, [id])
 
@@ -60,6 +64,16 @@ const Details = (props) => {
               </div>
             :
               null
+          }
+          {
+            loaded &&
+            blog.comments.slice(0).reverse().map((comment) => {
+              return(
+                <div key={comment._id}>
+                  <p>{comment.commentText} </p>
+                </div>
+              )
+            })
           }
         </div>
       

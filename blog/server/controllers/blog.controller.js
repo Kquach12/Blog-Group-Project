@@ -23,7 +23,14 @@ const getAllBlogs = (req, res) => {
 
 const getOneBlog = (req, res) => {
     Blog.findOne( {_id: req.params.id} )
-        .then(oneBlog => res.json(oneBlog))
+        .populate ({
+            path: "comments",
+            model: "Comment"
+        })
+        .then(oneBlog => {
+            console.log(`One BLOG::: ${oneBlog}`);
+            res.json(oneBlog);
+        })
         .catch(err => {
             console.log(err)
             res.status(400).json(err)
