@@ -8,7 +8,7 @@ const Header = () => {
 
     axios.post("http://localhost:8000/api/user/logout", {
       // left blank because we have no body but we need an empty body
-      // so that post can get to the third parameter
+      // so that post can get to the third parameter.
     }, {
       withCredentials: true,
     })
