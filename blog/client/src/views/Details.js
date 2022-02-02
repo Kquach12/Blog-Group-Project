@@ -54,7 +54,7 @@ const Details = (props) => {
 
           </div>
           <div className="edit-blog-comments">
-            {comments}
+            {/* {comments} */}
           </div>
 
           {
