@@ -22,7 +22,7 @@ const Edit = (props) => {
     }, [])
     const updateBlog = blog => {
         axios.put('http://localhost:8000/api/blogs/' + id, blog, {withCredentials: true})
-            .then(res => navigate('/'))
+            .then(res => navigate('/home'))
             .catch(err=>{
                 const errorResponse = err.response.data.errors;
                 console.log(errorResponse)
