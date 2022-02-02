@@ -1,6 +1,8 @@
 import React from 'react';
 import { navigate } from "@reach/router";
 import axios from "axios"
+import styles from '../styles/BlogList.module.css'
+
 
 const Header = () => {
   const logout = (e) => {
@@ -23,12 +25,22 @@ const Header = () => {
 
   return (
     <div className="container">
-      <div class="d-flex col-6 offset-md-7 justify-content-between">
-        <div><button onClick={() => navigate("/home")} type="button" class="btn btn-info">Home</button></div>
-        <div><button onClick={() => navigate("/create")} type="button" class="btn btn-info">Create a New Blog</button></div>
-        <div><button onClick={(e) => logout(e)} type="button" class="btn btn-info">Logout</button></div>
+      <div className="d-flex col-6 offset-md-7 justify-content-between">
       </div>
+
+      <nav className={`${styles.blogContainer}  ${styles.bgColorLightBlue} rounded mb-2`}>
+      <form className={` ${styles.bgColorLightBlue} rounded mb-2 form-inline`}>
+
+          <button className={`btn btn-sm ${styles.button}`} onClick={() => navigate("/home")} type="button" >Home</button>
+          <button className={`btn btn-sm ${styles.button}`} onClick={() => navigate("/create")} type="button" >Create a New Blog</button>
+    
+          <button className={`btn btn-sm ${styles.button}`} onClick={(e) => logout(e)} type="button" >Logout</button>
+
+      </form>
+      </nav>
     </div>
+
+
   )
 }
 

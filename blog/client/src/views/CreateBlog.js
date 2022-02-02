@@ -3,7 +3,7 @@ import axios from 'axios';
 import { navigate } from '@reach/router';
 import BlogForm from '../components/BlogForm';
 import { Link } from '@reach/router';
-
+import Header from '../components/Header';
 
 
 const CreateBlog = (props) => {
@@ -24,6 +24,7 @@ const CreateBlog = (props) => {
     }
     return (
         <div>
+            <Header/>
             <BlogForm
                 onSubmitProp={addBlog}
                 initialBlogPostTitle={""}
