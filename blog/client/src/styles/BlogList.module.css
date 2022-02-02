@@ -12,6 +12,16 @@
     border: 1.5px solid navy;
 }
 
+.link{
+    color: white;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: navy;
+    text-decoration: underline;
+}
+
 .blogContainer{
     border: 3px solid navy;
 }

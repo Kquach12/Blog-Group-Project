@@ -28,7 +28,7 @@ const BlogList = (props) => {
                         return(
                             <div key={filteredBlog._id} className={`${styles.blogContainer} rounded mb-2`}>
                                 <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
-                                    <p className={`${styles.bgColorLightBlue} fw-bold`}>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
+                                    <Link to={"/user/" + filteredBlog.userCreatingId._id} className={`${styles.bgColorLightBlue} ${styles.link} fw-bold`}>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</Link>
                                     <p className={`${styles.bgColorLightBlue} fw-bold`}>{filteredBlog.createdAt.split("T")[0]}</p>
                                 </div>
                                 <div className='bg-white p-2'>
@@ -48,7 +48,7 @@ const BlogList = (props) => {
                         return(
                             <div key={filteredBlog._id} className={`${styles.blogContainer} rounded mb-2`}>
                                 <div className={`d-flex justify-content-between align-items-center p-2 ${styles.blogContainerName}`}>
-                                    <p className={`${styles.bgColorLightBlue} fw-bold`}>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</p>
+                                    <Link to={"/user/" + filteredBlog.userCreatingId._id} className={`${styles.bgColorLightBlue} ${styles.link} fw-bold`}>{filteredBlog.userCreatingId.firstName} {filteredBlog.userCreatingId.lastName}</Link>
                                     <p className={`${styles.bgColorLightBlue} fw-bold`}>{filteredBlog.createdAt.split("T")[0]}</p>
                                 </div>
                                 <div className='bg-white p-2'>

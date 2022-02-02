@@ -7,6 +7,7 @@ import Edit from './views/Edit';
 import Home from './views/Home';
 import LogReg from './views/LogReg'
 import Footer from './components/Footer';
+import OtherUser from './views/OtherUser';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <CreateBlog path="/create" />
         <Edit path="/edit/:id" />
         <Details path="/details/:id" />
+        <OtherUser path="/user/:id"/>
       </Router>
       <Footer/>
     </div>
