@@ -97,7 +97,7 @@ const UserRegister = () => {
             <input className="form-control" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
               {
                 errors.lastName ?
-                  <p className="text-danger" > {errors.LastName.message} </p>
+                  <p className="text-danger" > {errors.lastName.message} </p>
                   : null
               }
         </div>  
@@ -138,7 +138,7 @@ const UserRegister = () => {
                       : null
                   }
         </div>
-          <button  className={`${styles.button} rounded p-2`}>Register</button>
+          <button  className={`button rounded p-2`}>Register</button>
         </div>
     </form>
   </div>

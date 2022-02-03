@@ -22,7 +22,7 @@ const DeleteBlog = (props) => {
             });
     }
   return (
-      <button className={`${styles.button} rounded p-2`}  onClick={ onClickDelete }>Delete</button>
+      <button className={`button rounded p-2`}  onClick={ onClickDelete }>Delete</button>
   )
 }
 

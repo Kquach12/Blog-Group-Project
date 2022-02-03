@@ -43,7 +43,9 @@ const Details = (props) => {
   return (
     
       <div>
+
           <Header/>
+
         <div className={`row ${styles.blogContainer} rounded mb-2`}>
           <div className={`${styles.blogContainerName}`}>
             <h2 className={`${styles.bgColorLightBlue} fw-bold`}>{title}</h2>
@@ -62,31 +64,47 @@ const Details = (props) => {
             loaded &&
             (blogCreator === user._id && loaded) ?
               <div className="bg-white p-2 d-flex justify-content-start">
-                <button onClick={() => navigate(`/edit/${id}`)} type="button" className={`${styles.button} rounded p-2 me-2 `} >Edit</button>
+                <button onClick={() => navigate(`/edit/${id}`)} type="button" className={`button rounded p-2 me-2 `} >Edit</button>
                 
                 <DeleteBlog  id={id}/>
               </div>
             :
               null
           }
-          {
-            loaded &&
-            blog.comments.slice(0).reverse().map((comment) => {
-              return(
-                <div key={comment._id}>
-                  <p>
-                  <span className='bold'>{format(new Date(comment.createdAt), ' MMMM-dd-hh:mm')}</span>{comment.createdBy.firstName} {comment.createdBy.lastName} {comment.commentText} </p>
-                </div>
-              )
-            })
-          }
+        </div>
+        <div >
+          <h4>Comments</h4>
+          <table className='table table-striped'>
+            <tbody>
+              {
+                loaded &&
+                blog.comments.slice(0).reverse().map((comment) => {
+                  return(
+                      <tr key={comment._id}>
+                        <td style={{"width": "16.66%"}}>
+                          {comment.createdBy.firstName} {comment.createdBy.lastName} <br/> 
+                          {format(new Date(comment.createdAt), ' MMMM-dd hh:mm')}
+                        </td>
+                        {/* <td style={{'borderBottom':'none'}}> {comment.createdBy.firstName} {comment.createdBy.lastName} </td> */}
+                        <td>{comment.commentText}</td>
+                      </tr>
+                  )
+                })
+              }
 
-          {
-            loaded &&
-            <CommentForm blogId={blog._id} initialComment="" comments={comments} setComments={setComments} />
-          } 
+            </tbody>
+          </table>
+
+            {
+              loaded &&
+              <CommentForm blogId={blog._id} initialComment="" comments={comments} setComments={setComments} />
+            } 
         </div>
+
         </div>
+
+      </div>
+
       
     
   )

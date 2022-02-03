@@ -11,3 +11,17 @@
   position: absolute;
   z-index: -1
 }
+
+.button{
+  background-color: white;
+  color: navy;
+  text-decoration: none;
+  border: 1.5px solid navy;
+  min-width: 62px;
+}
+
+.button:hover{
+  color: white;
+  background-color: navy;
+  border: 1.5px solid navy;
+}
