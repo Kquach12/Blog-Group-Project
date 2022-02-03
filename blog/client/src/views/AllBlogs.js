@@ -4,6 +4,7 @@ import axios from 'axios';
 import BlogList from '../components/BlogList';
 import ProfileInfo from '../components/ProfileInfo';
 import CommentForm from '../components/CommentForm';
+import Header from '../components/Header';
 
 
 
@@ -20,8 +21,9 @@ const AllBlogs = () => {
                 .then(res => setUser(res.data)));;
     },[])
   return (
-
+    
     <div className='container'>
+      <Header/>
       <div className='row'>
         <div className='col'>
           <ProfileInfo /> 

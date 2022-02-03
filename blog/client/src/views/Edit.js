@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { navigate } from '@reach/router';
 import BlogForm from '../components/BlogForm';
-
+import Header from '../components/Header';
 
 const Edit = (props) => {
     const { id } = props;
@@ -31,6 +31,7 @@ const Edit = (props) => {
     }
     return (
         <div>
+            <Header/>
             {loaded && (
                 <div>
                     {/* {errors.map((err, index) => <p key={index}>{err}</p>)} */}
