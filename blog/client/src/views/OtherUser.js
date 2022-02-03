@@ -6,6 +6,7 @@ import ProfileInfo from '../components/ProfileInfo';
 import { Link } from '@reach/router';
 import styles from '../styles/BlogList.module.css'
 import CommentForm from '../components/CommentForm';
+import Header from '../components/Header';
 
 
 
@@ -35,6 +36,7 @@ const OtherUser = (props) => {
     return (
 
         <div>
+            <Header/>
             <div className='row'>
                 <div className='col-6 d-flex align-items-center mt-5 flex-column'>
                     <ProfileInfo loggedInUserProp = {user} /> 

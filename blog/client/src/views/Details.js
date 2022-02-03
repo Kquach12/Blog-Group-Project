@@ -5,7 +5,7 @@ import DeleteBlog from '../components/DeleteBlog';
 import styles from '../styles/BlogList.module.css'
 import CommentForm from '../components/CommentForm';
 import { format } from 'date-fns';
-
+import Header from '../components/Header';
 
 const Details = (props) => {
   const {id} = props;
@@ -43,6 +43,9 @@ const Details = (props) => {
   return (
     
       <div>
+
+          <Header/>
+
         <div className={`row ${styles.blogContainer} rounded mb-2`}>
           <div className={`${styles.blogContainerName}`}>
             <h2 className={`${styles.bgColorLightBlue} fw-bold`}>{title}</h2>
@@ -97,7 +100,11 @@ const Details = (props) => {
               <CommentForm blogId={blog._id} initialComment="" comments={comments} setComments={setComments} />
             } 
         </div>
+
+        </div>
+
       </div>
+
       
     
   )

@@ -1,15 +1,16 @@
 import React from 'react'
 import UserLogin from '../components/UserLogin'
 import UserRegister from '../components/UserRegister';
+import styles from '../styles/BlogList.module.css'
 
 
 const LogReg = () => {
   return (
     <div className='container'>
-      <div>
-        <h2>Welcome to the Blog Website!</h2>
-        <h5>Please register or login if already a registered user!</h5>
+      <div className={`${styles.blogContainer} ${styles.bgColorLightBlue} rounded mb-2`}>
+        <h2 className={`${styles.bgColorLightBlue}`}>Welcome to the Blogarific!</h2>
       </div>
+        <h5>Please register or login if already a registered user!</h5>
       <div className="row">
         <div className='col-4 offset-md-2'>
           <UserRegister/>
