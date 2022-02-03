@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <div className="container">
+    <div>
       <div className="d-flex col-6 offset-md-7 justify-content-between">
       </div>
 
