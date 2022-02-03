@@ -47,9 +47,9 @@ const Home = () => {
           {/* Use this button to toggle between All Blogs and My Blogs */}
           {
             showUserBlogs ?
-              <button onClick={changeBlogs} className={`${styles.button} rounded p-2 mt-2 fw-bold`}>All Blogs</button>
+              <button onClick={changeBlogs} className={`button rounded p-2 mt-2 fw-bold`}>All Blogs</button>
             :
-              <button onClick={changeBlogs} className={`${styles.button} rounded p-2 mt-2 fw-bold`}>My Blogs</button>
+              <button onClick={changeBlogs} className={`button rounded p-2 mt-2 fw-bold`}>My Blogs</button>
           }
         </div>
 

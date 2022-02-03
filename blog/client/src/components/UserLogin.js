@@ -32,7 +32,7 @@ const UserLogin = () => {
     })
     .catch((err) => {
         console.log(err.response);
-        setErrors(err.response.data.message)
+        setErrors(err.response.data)
     })
 }
   return (
@@ -45,22 +45,22 @@ const UserLogin = () => {
         <div className="mb-3 col-10">
             <label className="form-label">Email:</label>
             <input className="form-control" type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
-              {
-                errors.firstName ?
-                  <p className="text-danger" > {errors.email.message} </p>
+              {/* {
+                errors ?
+                  <p className="text-danger" > {errors.message} </p>
                   : null
-              }
+              } */}
         </div>
         <div className="mb-3 col-10">
             <label className="form-label">Password:</label>
             <input className="form-control" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
               {
-                errors.firstName ?
-                  <p className="text-danger" > {errors.password.message} </p>
+                errors ?
+                  <p className="text-danger" > {errors.message} </p>
                   : null
               }
         </div>
-          <button  className={`${styles.button} rounded p-2`}>Login</button>
+          <button  className={`button rounded p-2`}>Login</button>
       </form>
     </div>
   )
