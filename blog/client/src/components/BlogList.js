@@ -35,7 +35,7 @@ const BlogList = (props) => {
                                     <h3 className='bg-white'>{filteredBlog.blogPostTitle}</h3>
                                     <p className='bg-white'>{filteredBlog.blogPostDescription}</p>
                                     <span>
-                                        <Link to={"/details/" + filteredBlog._id} ><button className={`${styles.button} rounded p-2`}>Open</button></Link>
+                                        <Link to={"/details/" + filteredBlog._id} ><button className={`button rounded p-2`}>Open</button></Link>
                                     </span>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ const BlogList = (props) => {
                                 <h3 className='bg-white'>{filteredBlog.blogPostTitle}</h3>
                                 <p className='bg-white'>{filteredBlog.blogPostDescription}</p>
                                 <span>
-                                    <Link to={"/details/" + filteredBlog._id}><button className={`${styles.button} rounded p-2`}>Open</button></Link>
+                                    <Link to={"/details/" + filteredBlog._id}><button className={`button rounded p-2`}>Open</button></Link>
                                 </span>
                                 </div>
                             </div>

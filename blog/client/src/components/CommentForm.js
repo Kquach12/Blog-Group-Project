@@ -31,7 +31,7 @@ const CommentForm = (props) => {
     }
 
     return(
-        <div className='form-group container text-start'>
+        <div className='form-group text-start'>
             <form onSubmit={addComment}>
                 {/* {
                     errors.comment ?
@@ -42,7 +42,7 @@ const CommentForm = (props) => {
 
                 <input type="text" className="form-control" value={comment} onChange={(e) => setComment(e.target.value)} />
             
-                <button type='submit' className='btn btn-primary mt-2'>Add</button>
+                <button type='submit' className='button rounded p-2 mt-2'>Add</button>
             </form>
         </div>
         

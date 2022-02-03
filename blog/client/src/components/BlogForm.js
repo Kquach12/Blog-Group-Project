@@ -34,7 +34,7 @@ const BlogForm = (props) => {
                         
                             <p className={`fw-bold mt-2 ${styles.label}`}>DESCRIPTION</p>
                             {
-                                errors.blogPostTitle ?
+                                errors.blogPostDescription ?
                                 <label className="text-danger fw-bold"style={{'backgroundColor':'rgb(111, 178, 255)'}} > {errors.blogPostDescription.message} </label>
                                 : null
                             }
@@ -42,7 +42,7 @@ const BlogForm = (props) => {
                         
                             <p className={`fw-bold mt-2 ${styles.label}`}>CONTENT</p>
                             {
-                                errors.blogPostTitle ?
+                                errors.blogPostContent ?
                                 <label className="text-danger fw-bold"style={{'backgroundColor':'rgb(111, 178, 255)'}} > {errors.blogPostContent.message} </label>
                                 : null
                             }
