@@ -38,8 +38,21 @@ const Details = (props) => {
         })
   },[])
 
-// NOTE: delete button at the bottom still needs the delete functionality. 
-
+  const deleteBlog = (blogId) => {
+    axios.delete(`http://localhost:8000/api/blogs/${blogId}`, {
+        withCredentials: true,
+    })
+        .then((res) => {
+            console.log(res.data);
+            navigate('/home');
+        })
+        .catch((err) =>  {
+            if(err.response.status === 401) {
+                navigate('/')
+            } 
+            console.log(err.response);
+        });
+}
   return (
     
       <div>
@@ -66,7 +79,7 @@ const Details = (props) => {
               <div className="bg-white p-2 d-flex justify-content-start">
                 <button onClick={() => navigate(`/edit/${id}`)} type="button" className={`button rounded p-2 me-2 `} >Edit</button>
                 
-                <DeleteBlog  id={id}/>
+                <DeleteBlog onSubmitProp={deleteBlog}  id={id}/>
               </div>
             :
               null
