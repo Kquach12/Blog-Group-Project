@@ -35,7 +35,7 @@ const OtherUser = (props) => {
 
     return (
 
-        <div>
+        <div className='container'>
             <Header/>
             <div className='row'>
                 <div className='col-6 d-flex align-items-center mt-5 flex-column'>

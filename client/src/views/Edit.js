@@ -33,7 +33,7 @@ const Edit = (props) => {
         <div>
             <Header/>
             {loaded && (
-                <div>
+                <div className='container'>
                     {/* {errors.map((err, index) => <p key={index}>{err}</p>)} */}
                     <BlogForm
                         onSubmitProp={updateBlog}

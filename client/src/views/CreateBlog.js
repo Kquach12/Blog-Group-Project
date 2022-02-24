@@ -25,13 +25,15 @@ const CreateBlog = (props) => {
     return (
         <div>
             <Header/>
-            <BlogForm
-                onSubmitProp={addBlog}
-                initialBlogPostTitle={""}
-                initialBlogPostDescription={""}
-                initialBlogPostContent={""}
-                errors = {errors}
-            />
+            <div className='container'>
+                <BlogForm
+                    onSubmitProp={addBlog}
+                    initialBlogPostTitle={""}
+                    initialBlogPostDescription={""}
+                    initialBlogPostContent={""}
+                    errors = {errors}
+                />
+            </div>
         </div>
     )
 }

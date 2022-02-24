@@ -58,60 +58,63 @@ const Details = (props) => {
       <div>
 
         <Header/>
-        <div className={` ${styles.blogContainer} bg-white rounded mb-2`}>
-          
-          <div className={`${styles.blogContainerName}`}>
-            <h2 className={`${styles.bgColorLightBlue} fw-bold`}>{title}</h2>
-          </div>
-          <div className="bg-white p-2">
-            <h4 className={`bg-white fw-bold mt-2  ${styles.label}`}>{description}</h4>
-            <br />
-            <p className={`bg-white mt-2 ${styles.label}`}>{content}</p>
+        <div className='container'>
 
-          </div>
-          <div className="edit-blog-comments">
-            {/* {comments} */}
-          </div>
+          <div className={` ${styles.blogContainer} bg-white rounded mb-2`}>
+            
+            <div className={`${styles.blogContainerName}`}>
+              <h2 className={`${styles.bgColorLightBlue} fw-bold`}>{title}</h2>
+            </div>
+            <div className="bg-white p-2">
+              <h4 className={`bg-white fw-bold mt-2  ${styles.label}`}>{description}</h4>
+              <br />
+              <p className={`bg-white mt-2 ${styles.label}`}>{content}</p>
 
-          {
-            loaded &&
-            (blogCreator === user._id && loaded) ?
-              <div className="bg-white p-2 d-flex justify-content-start">
-                <button onClick={() => navigate(`/edit/${id}`)} type="button" className={`button rounded p-2 me-2 `} >Edit</button>
-                
-                <DeleteBlog onSubmitProp={deleteBlog}  id={id}/>
-              </div>
-            :
-              null
-          }
-        </div>
-        <div >
-          <h4>Comments</h4>
-          <table className='table table-striped'>
-            <tbody>
-              {
-                loaded &&
-                blog.comments.slice(0).reverse().map((comment) => {
-                  return(
-                      <tr key={comment._id}>
-                        <td style={{"width": "16.66%"}}>
-                          {comment.createdBy.firstName} {comment.createdBy.lastName} <br/> 
-                          {format(new Date(comment.createdAt), ' MMMM-dd hh:mm')}
-                        </td>
-                        {/* <td style={{'borderBottom':'none'}}> {comment.createdBy.firstName} {comment.createdBy.lastName} </td> */}
-                        <td>{comment.commentText}</td>
-                      </tr>
-                  )
-                })
-              }
-
-            </tbody>
-          </table>
+            </div>
+            <div className="edit-blog-comments">
+              {/* {comments} */}
+            </div>
 
             {
               loaded &&
-              <CommentForm blogId={blog._id} initialComment="" comments={comments} setComments={setComments} />
-            } 
+              (blogCreator === user._id && loaded) ?
+                <div className="bg-white p-2 d-flex justify-content-start">
+                  <button onClick={() => navigate(`/edit/${id}`)} type="button" className={`button rounded p-2 me-2 `} >Edit</button>
+                  
+                  <DeleteBlog onSubmitProp={deleteBlog}  id={id}/>
+                </div>
+              :
+                null
+            }
+          </div>
+          <div >
+            <h4>Comments</h4>
+            <table className='table table-striped'>
+              <tbody>
+                {
+                  loaded &&
+                  blog.comments.slice(0).reverse().map((comment) => {
+                    return(
+                        <tr key={comment._id}>
+                          <td style={{"width": "16.66%"}}>
+                            {comment.createdBy.firstName} {comment.createdBy.lastName} <br/> 
+                            {format(new Date(comment.createdAt), ' MMMM-dd hh:mm')}
+                          </td>
+                          {/* <td style={{'borderBottom':'none'}}> {comment.createdBy.firstName} {comment.createdBy.lastName} </td> */}
+                          <td>{comment.commentText}</td>
+                        </tr>
+                    )
+                  })
+                }
+
+              </tbody>
+            </table>
+
+              {
+                loaded &&
+                <CommentForm blogId={blog._id} initialComment="" comments={comments} setComments={setComments} />
+              } 
+          </div>
         </div>
 
       </div>

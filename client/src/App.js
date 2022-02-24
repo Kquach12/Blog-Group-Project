@@ -12,7 +12,7 @@ import OtherUser from './views/OtherUser';
 
 function App() {
   return (
-    <div className="App container">
+    <div className="App">
       <Router>
         <LogReg path="/"/>
         <Home path="/home"/>

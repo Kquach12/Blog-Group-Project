@@ -38,27 +38,29 @@ const Home = () => {
 
     <div>
       <Header/>
-      <div className='row'>
+      <div className='container'>
+        <div className='row '>
 
-        <div className='col-6 d-flex align-items-center mt-5 flex-column'>
+          <div className='col d-flex align-items-center mt-5 flex-column'>
 
-          {/* Pass user info to Profile component as a prop, so we can reuse that component */}
-          <ProfileInfo loggedInUserProp = {user} /> 
+            {/* Pass user info to Profile component as a prop, so we can reuse that component */}
+            <ProfileInfo loggedInUserProp = {user} /> 
 
-          {/* Use this button to toggle between All Blogs and My Blogs */}
-          {
-            showUserBlogs ?
-              <button onClick={changeBlogs} className={`button rounded p-2 mt-2 fw-bold`}>All Blogs</button>
-            :
-              <button onClick={changeBlogs} className={`button rounded p-2 mt-2 fw-bold`}>My Blogs</button>
-          }
+            {/* Use this button to toggle between All Blogs and My Blogs */}
+            {
+              showUserBlogs ?
+                <button onClick={changeBlogs} className={`button rounded p-2 mt-2 fw-bold`}>All Blogs</button>
+              :
+                <button onClick={changeBlogs} className={`button rounded p-2 mt-2 fw-bold`}>My Blogs</button>
+            }
+          </div>
+
+          <div className='col'>
+            { loaded && <BlogList filterId={user} showUserBlogs={showUserBlogs}/>}
+
+          </div>
+
         </div>
-
-        <div className='col'>
-          { loaded && <BlogList filterId={user} showUserBlogs={showUserBlogs}/>}
-
-        </div>
-
       </div>
     </div>
   )

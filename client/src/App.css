@@ -3,6 +3,13 @@
   padding: 0;
   margin: 0;
 }
+
+.header{
+  background-color: rgb(111, 178, 255);
+  border-bottom: 2px solid navy;
+  height: 70px;
+}
+
 .footer-span {
   text-align: center;
   bottom: 0;
